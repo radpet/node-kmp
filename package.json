@@ -1,0 +1,28 @@
+{
+  "name": "node-kmp",
+  "version": "1.0.0",
+  "description": "KMP javascript implementation",
+  "main": "src/string-matcher.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/radpet/node-kmp.git"
+  },
+  "keywords": [
+    "kmp",
+    "string",
+    "matching"
+  ],
+  "author": "Radoslav Petkov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/radpet/node-kmp/issues"
+  },
+  "homepage": "https://github.com/radpet/node-kmp#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.0.2"
+  }
+}
