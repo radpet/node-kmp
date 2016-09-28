@@ -29,17 +29,18 @@ function StringMatcher(word) {
 }
 
 /**
- *
+ *  Matches the word in a given text
  * @param text The text to look in
+ * @param caseInSensitive Whether to threat capital letters and letters equal
  * @returns {number} Returns the index of first match or -1 if it as not matched
  */
-StringMatcher.prototype.match = function (text) {
+StringMatcher.prototype.match = function (text, caseInSensitive) {
 
   var position = 0;
   var match = 0;
 
   while (match + position < text.length) {
-    if (this.word[position] === text[match + position]) {
+    if (this._equal(this.word[position], text[match + position], caseInSensitive)) {
       if (position === this.word.length - 1) {
         return match;
       }
@@ -56,6 +57,31 @@ StringMatcher.prototype.match = function (text) {
   }
 
   return -1;
+};
+/**
+ * Compares if two letters are equal
+ * @param a Letter
+ * @param b Letter
+ * @param caseInSensitive Whether to distinguish capital and lowercase letters
+ * @private
+ */
+StringMatcher.prototype._equal = function (a, b, caseInSensitive) {
+  if (caseInSensitive) {
+    return this._toLowercase(a) === this._toLowercase(b);
+  }
+  return a === b;
+};
+
+/**
+ * Transforms letter to small case
+ * @param letter
+ * @private
+ */
+StringMatcher.prototype._toLowercase = function (letter) {
+  if (letter >= 'A' && letter <= 'Z') {
+    letter = String.fromCharCode(letter.charCodeAt(0) - 'A'.charCodeAt(0) + 'a'.charCodeAt(0));
+  }
+  return letter;
 };
 
 module.exports = StringMatcher;
