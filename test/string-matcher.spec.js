@@ -58,7 +58,12 @@ describe('Tests for string matcher', function () {
       word: 'AaAa',
       text: 'aAaA',
       result: 0
-    }
+    },
+    {
+      word:'АсА',
+      text:'аса',
+      result:0
+    },
   ].forEach(function (test) {
     it('should match ' + test.word + ' inside ' + test.text + ' (case insensitive)', function () {
       var matcher = new StringMatcher(test.word);

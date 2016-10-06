@@ -73,15 +73,12 @@ StringMatcher.prototype._equal = function (a, b, caseInSensitive) {
 };
 
 /**
- * Transforms letter to small case
+ * Transforms letter to lower case
  * @param letter
  * @private
  */
 StringMatcher.prototype._toLowercase = function (letter) {
-  if (letter >= 'A' && letter <= 'Z') {
-    letter = String.fromCharCode(letter.charCodeAt(0) - 'A'.charCodeAt(0) + 'a'.charCodeAt(0));
-  }
-  return letter;
+  return letter.toLowerCase();
 };
 
 module.exports = StringMatcher;
